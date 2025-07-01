@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AI-Driven NPC Interaction in a Story-Based 3D Game Using Locally Fine-Tuned LLMs in GGUF Format
 
 ## Unity Game: Elira NPC Demo
@@ -128,7 +127,5 @@ Download the latest Elira NPC GGUF model from Hugging Face:
 
 - All assets used in this demo are free or open source.
 - The AI backend uses a fine-tuned Mistral-7B LLM served via Flask.
->>>>>>> 48138b8 (Initial commit: Unity 3D Elira NPC AI game)
 
----
 
