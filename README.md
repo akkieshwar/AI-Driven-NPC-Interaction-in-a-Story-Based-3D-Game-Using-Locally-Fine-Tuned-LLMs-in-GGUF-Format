@@ -1,53 +1,92 @@
-# AI-Driven NPC Interaction in a Story-Based 3D Game Using Locally Fine-Tuned LLMs in GGUF Format
+Unity Game: Elira NPC Demo
+This Unity project is a 3D game demo that lets you chat with an AI-powered NPC (Elira) using natural language. The game uses a locally fine-tuned LLM (Large Language Model) in GGUF format, served via Flask (with Ollama/llama.cpp), to provide real-time, emotion-driven dialogue and immersive gameplay—all fully offline.
 
+Project Overview
+Elira-NPC-LLM is an open-source, local Large Language Model system for building deeply emotional NPC dialogue in games.
 
-Fine-tuned Emotional LLM for NPC Dialogue in Games (Unity-Ready, GGUF Export)
+Built on: Mistral-7B-Instruct-v0.2
 
----
+Fine-tuned on: 500+ handcrafted, emotion-tagged dialogue lines
 
-## Project Overview
+Exports to: GGUF for blazing-fast local inference (llama.cpp, Ollama, etc.)
 
-**Elira-NPC-LLM** is an open-source, local Large Language Model for building deeply emotional NPC dialogue in any game.  
-- Built on [Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
-- Fine-tuned on 500+ lines of handcrafted, emotion-tagged conversation
-- Exports to GGUF for blazing-fast local inference (llama.cpp, Ollama, etc)
-- Modular code: train, merge, inference, dataset, and conversion steps
+Modular code: train, merge, inference, dataset, and conversion steps
 
----
+How It Works
+Approach Elira (the NPC) in the village scene.
 
-## Download the GGUF Model
+Press E when prompted to open the chatbox.
 
-You can download the latest Elira NPC GGUF model from HuggingFace:
+Type your message and press Enter to send.
 
-**[elira-npc-gguf on HuggingFace (Direct Download)](https://huggingface.co/Manofaction/elira-npc-gguf/resolve/main/elira_gguf_model.gguf)**  
+Your message is sent from Unity to a Python Flask API running locally.
+
+The LLM (fine-tuned Mistral-7B in GGUF format, running via Ollama) generates Elira’s response and emotion tag, which are sent back to Unity.
+
+The chatbox displays Elira’s reply, and her character’s animation updates to match the detected emotion.
+
+Features
+Natural language chat with an NPC, powered by a custom fine-tuned LLM.
+
+Emotion detection in NPC responses, triggering matching Unity animations.
+
+Proximity-based chatbox UI: appears when you get near Elira for smooth, immersive gameplay.
+
+Works fully offline—all LLM inference is local, no internet required after setup.
+
+Requirements
+Unity 2022.3 LTS or newer.
+
+Python (for running the Flask server and LLM backend).
+
+Local LLM model in GGUF format (see below for download/setup).
+
+Ollama or llama.cpp for model inference.
+
+Setup
+Clone/download this Unity folder into your projects.
+
+See the main project README for backend (Flask/LLM) setup and integration instructions.
+
+Start the Flask server and LLM backend before running the Unity game.
+
+Open the Unity project and play the scene.
+
+Download the GGUF Model
+Download the latest Elira NPC GGUF model from HuggingFace:
+
+elira-npc-gguf on HuggingFace (Direct Download)
 (File size: 14.5 GB)
 
-Repo link: [https://huggingface.co/Manofaction/elira-npc-gguf](https://huggingface.co/Manofaction/elira-npc-gguf)
+Repo link: https://huggingface.co/Manofaction/elira-npc-gguf
 
----
+Download Links
+🧠 Model (GGUF format)
+elira_gguf_model.gguf (Direct Download, 14.5 GB)
 
-# Download Links
+HuggingFace Model Repo
 
-## 🧠 Model (GGUF format)
-- [elira_gguf_model.gguf (Direct Download, 14.5 GB)](https://huggingface.co/Manofaction/elira-npc-gguf/resolve/main/elira_gguf_model.gguf)
-- [HuggingFace Model Repo](https://huggingface.co/Manofaction/elira-npc-gguf)
+📚 Dataset
+cleaned_formatted_dataset.jsonl (Direct Download)
 
-## 📚 Dataset
-- [cleaned_formatted_dataset.jsonl (Direct Download)](https://huggingface.co/datasets/Manofaction/elira-npc-dataset/resolve/main/cleaned_formatted_dataset.jsonl)
-- [HuggingFace Dataset Repo](https://huggingface.co/datasets/Manofaction/elira-npc-dataset)
+HuggingFace Dataset Repo
 
-## 🏁 Training Checkpoints
-- [HuggingFace Checkpoints Repo](https://huggingface.co/Manofaction/elira-npc-checkpoints)
+🏁 Training Checkpoints
+HuggingFace Checkpoints Repo
 
----
+How to use:
 
-**How to use:**  
-1. Download the model (GGUF) for inference with llama.cpp or compatible backends.
-2. Dataset is provided for further fine-tuning or inspection.
-3. Checkpoints repo contains intermediate or final training artifacts (weights, logs, etc).
+Download the GGUF model for local inference with llama.cpp, Ollama, or compatible backends.
 
----
+Use the dataset for further fine-tuning, inspection, or academic purposes.
 
-*See the HuggingFace pages above for additional files, usage instructions, and version history.*
+The checkpoints repo contains intermediate/final training artifacts (weights, logs, etc).
 
+See the HuggingFace links above for extra files, usage instructions, and version history.
 
+Credits
+All assets used are free or open source (Mixamo, Kenney, Quaternius, etc.).
+
+AI backend uses a locally fine-tuned Mistral-7B LLM, served with Flask and GGUF for fast, private inference.
+
+For technical details and methodology, see the research paper in /docs/.
