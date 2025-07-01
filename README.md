@@ -128,4 +128,8 @@ Download the latest Elira NPC GGUF model from Hugging Face:
 - All assets used in this demo are free or open source.
 - The AI backend uses a fine-tuned Mistral-7B LLM served via Flask.
 
+## Output images
+![Sample Output](ouput_Pic.png)
+
+
 
