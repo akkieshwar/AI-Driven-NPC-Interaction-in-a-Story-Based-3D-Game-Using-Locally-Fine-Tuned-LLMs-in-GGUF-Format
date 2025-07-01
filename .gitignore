@@ -1,0 +1,25 @@
+
+---
+
+## **.gitignore**
+```gitignore
+# Ignore model weights and binaries
+*.bin
+*.ckpt
+*.safetensors
+*.pt
+*.gguf
+
+# Output/checkpoint folders
+elira_mistral_lora_fp16_model/
+elira_merged_fp16_full/
+elira_mistral_lora_fp16/
+__pycache__/
+*.zip
+*.tar
+*.tar.gz
+
+# VSCode, Jupyter, and Python cruft
+.vscode/
+.ipynb_checkpoints/
+.DS_Store

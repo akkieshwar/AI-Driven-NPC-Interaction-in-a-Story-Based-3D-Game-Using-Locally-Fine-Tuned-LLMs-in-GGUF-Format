@@ -1,0 +1,94 @@
+1. Clone llama.cpp (Classic Version)
+bash
+Copy
+Edit
+cd /elira
+git clone https://github.com/ggerganov/llama.cpp.git llama.cpp-old
+2. Checkout a Stable (Older) Commit
+This is crucial for classic main binary behavior (with reverse prompt support):
+
+bash
+Copy
+Edit
+cd llama.cpp-old
+git checkout e5b89a44
+3. Build llama.cpp
+bash
+Copy
+Edit
+rm -rf build        # Always good to clean any old builds
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+4. Place Your GGUF Model File
+Make sure your model (example: elira.gguf) is present in a known directory.
+(You already had it at /elira/elira.gguf.)
+
+5. Run the Model with Stop Sequence
+Single Output, Stop at "###"
+bash
+Copy
+Edit
+./bin/main -m /elira/elira.gguf --prompt "### Player: Why are you crying?\n### Elira:" --reverse-prompt "###"
+The --reverse-prompt "###" halts output when the model generates ### (your stop token).
+
+6. (Optional) Download GGUF Model
+If you need to upload or download the model:
+Use your Jupyter file browser or command line:
+
+bash
+Copy
+Edit
+# To download from instance (use scp or Jupyter Download button)
+# Example from your local PC:
+scp user@remote.server:/elira/elira.gguf ./elira.gguf
+
+# Or use the Jupyter notebook UI to download files
+7. (Optional) Run Python Scripts
+(If you ever need to run Python code, make sure you’re in the correct folder and use python not Python)
+
+bash
+Copy
+Edit
+python elira.py
+(Of course, elira.py must be in your current directory!)
+
+8. List Files and Check Everything
+bash
+Copy
+Edit
+ls -lh /elira
+ls -lh /elira/llama.cpp-old/build/bin/
+9. Useful llama.cpp classic main options
+-n 50 limit to 50 tokens
+
+--prompt "PROMPT" to set your prompt
+
+--reverse-prompt "###" set your stop sequence
+
+-m /path/to/model.gguf set your model path
+
+Help menu:
+
+bash
+Copy
+Edit
+./bin/main --help
+10. (Optional) Clean up
+Remove old builds or extra files as needed.
+
+bash
+Copy
+Edit
+rm -rf /elira/llama.cpp-old/build/*
+That’s it!
+With these steps and commands, you can:
+
+Recreate the entire classic llama.cpp inference setup
+
+Compile from source (with specific working commit)
+
+Run your GGUF model with correct stop handling (for perfect Unity/Flask integration, chatbot scripting, etc.)
+
+Download/upload models as needed

@@ -1,0 +1,128 @@
+INSTANCE SPECS (Vast.ai)
+Item	Value
+Platform	Vast.ai (Jupyter Notebook)
+GPU	NVIDIA RTX 2*5090
+RAM	36 GB
+CPU	24-core
+Disk	1 TB
+OS	Ubuntu 20.04 / JupyterLab
+Runtime	Python 3.12 with venv
+Venv Path	/venv/main/
+
+PYTHON LIBRARIES INSTALLED
+Use this block immediately after launching the instance:
+
+bash
+Copy
+Edit
+pip install transformers==4.41.1
+pip install datasets
+pip install peft==0.10.0
+pip install accelerate==0.30.1
+pip install bitsandbytes==0.43.0
+pip install sentencepiece
+pip install safetensors
+
+
+FILES USED
+Filename	Description
+cleaned_formatted_dataset.jsonl	Your 505-line emotional Elira dataset
+train.py	Fine-tuning script (LoRA + PEFT)
+inference.py	Inference generation for Elira responses
+elira_project_done.zip	Final compressed archive (all included)
+
+
+TRAINING COMMAND
+bash
+Copy
+Edit
+accelerate launch train.py
+No GPU ID was manually set; it auto-detected your 1-GPU instance.
+
+INFERENCE COMMAND
+bash
+Copy
+Edit
+python inference.py
+You used this to test:
+
+python
+Copy
+Edit
+instruction = "Respond as Elira, a scared but hopeful village girl."
+player_input = "Why are you crying?"
+prompt = f"{instruction}\n### Player: {player_input}\n### Elira:"
+inference.py CONFIG SUMMARY
+python
+Copy
+Edit
+tokenizer = AutoTokenizer.from_pretrained("elira_mistral_lora_fp16_tokenizer", trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("elira_mistral_lora_fp16_model", trust_remote_code=True)
+Generation settings:
+python
+Copy
+Edit
+max_new_tokens = 80
+do_sample = True
+temperature = 0.7
+top_p = 0.9
+repetition_penalty = 1.15
+eos_token_id = tokenizer.eos_token_id     # = 2
+pad_token_id = tokenizer.pad_token_id     # = 2
+ZIPPING COMMAND
+To bundle everything for local download:
+
+bash
+Copy
+Edit
+zip -r elira_project_done.zip elira_mistral_lora_fp16 elira_mistral_lora_fp16_model elira_mistral_lora_fp16_tokenizer cleaned_formatted_dataset.jsonl train.py inference.py
+Result: elira_project_done.zip (≈ 2 GB)
+
+TOKEN IDs INFO
+Token	Value	Purpose
+pad_token_id	2	Used for padding sequences
+eos_token_id	2	End-of-sequence marker
+bos_token_id (optional)	-	Not explicitly set
+
+These are derived automatically from your tokenizer config:
+
+python
+Copy
+Edit
+tokenizer.eos_token_id
+tokenizer.pad_token_id
+BASE MODEL INFO
+Item	Value
+Base model	mistralai/Mistral-7B-Instruct-v0.2 (HuggingFace)
+Format	LoRA + PEFT Adapter
+Model Export Type	adapter_model.safetensors
+Tokenizer Format	tokenizer.json, tokenizer_config.json
+Final Output	Compatible with GGUF (via conversion if needed)
+
+OPTIONAL: Dataset Format (for training reference)
+json
+Copy
+Edit
+{"instruction": "Respond as Elira, a scared but hopeful village girl.", "input": "Why are you crying?", "output": "Because I miss my family. Everything changed. [sad]"}
+RECOMMENDED REBUILD STEPS
+To rebuild this model from scratch:
+
+bash
+Copy
+Edit
+# Create new folder
+mkdir elira-npc && cd elira-npc
+
+# Upload these files
+# - cleaned_formatted_dataset.jsonl
+# - train.py
+# - inference.py
+
+# Run:
+pip install transformers datasets peft accelerate bitsandbytes safetensors sentencepiece
+
+# Train:
+accelerate launch train.py
+
+# Run inference:
+python inference.py
