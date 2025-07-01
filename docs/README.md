@@ -2,8 +2,6 @@
 
 ![Ollama Testing](https://github.com/akkieshwar/AI-Driven-NPC-Interaction-in-a-Story-Based-3D-Game-Using-Locally-Fine-Tuned-LLMs-in-GGUF-Format/blob/main/docs/Pic-1.png?raw=true)
 
-![Village Scene](https://github.com/akkieshwar/AI-Driven-NPC-Interaction-in-a-Story-Based-3D-Game-Using-Locally-Fine-Tuned-LLMs-in-GGUF-Format/blob/main/docs/Pic-1.png?raw=true)
-
 ![Elira Dialogue](https://github.com/akkieshwar/AI-Driven-NPC-Interaction-in-a-Story-Based-3D-Game-Using-Locally-Fine-Tuned-LLMs-in-GGUF-Format/blob/main/docs/Pic-2.png?raw=true)
 
 ![Elira Dialogue](https://github.com/akkieshwar/AI-Driven-NPC-Interaction-in-a-Story-Based-3D-Game-Using-Locally-Fine-Tuned-LLMs-in-GGUF-Format/blob/main/docs/Pic-3.png?raw=true)
