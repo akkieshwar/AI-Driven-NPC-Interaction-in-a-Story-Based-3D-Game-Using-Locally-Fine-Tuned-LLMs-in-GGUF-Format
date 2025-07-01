@@ -1,4 +1,5 @@
-# Elira-NPC-LLM
+# AI-Driven NPC Interaction in a Story-Based 3D Game Using Locally Fine-Tuned LLMs in GGUF Format
+
 
 Fine-tuned Emotional LLM for NPC Dialogue in Games (Unity-Ready, GGUF Export)
 
