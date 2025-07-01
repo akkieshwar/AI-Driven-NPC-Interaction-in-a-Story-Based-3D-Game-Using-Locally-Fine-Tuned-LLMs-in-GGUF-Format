@@ -1,0 +1,20 @@
+=======================
+ HuggingFace Download Links
+=======================
+
+Model (GGUF format)
+-------------------
+Direct download: 
+https://huggingface.co/Manofaction/elira-npc-gguf/resolve/main/elira_gguf_model.gguf
+
+Repo page (browse/versions): 
+https://huggingface.co/Manofaction/elira-npc-gguf
+
+[Add more links below as you upload them...]
+
+Example:
+Dataset JSONL:
+https://huggingface.co/datasets/Manofaction/elira-npc-dataset/resolve/main/elira_dialogue_dataset.jsonl
+
+Tokenizer/model files:
+https://huggingface.co/Manofaction/elira-npc-gguf/resolve/main/tokenizer.model
