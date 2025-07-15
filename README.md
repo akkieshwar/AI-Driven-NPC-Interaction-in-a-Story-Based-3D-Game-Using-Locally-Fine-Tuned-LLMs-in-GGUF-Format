@@ -66,7 +66,6 @@ This is a 3D story-driven Unity game project featuring an emotionally intelligen
 ## Requirements
 
 - Unity 2022.3 LTS or newer.
-<<<<<<< HEAD
 - Python (for running the Flask server and LLM backend).
 - Local LLM model in GGUF format (see below for download/setup).
 - Ollama or llama.cpp for model inference.
